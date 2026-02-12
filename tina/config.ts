@@ -1,6 +1,6 @@
-const { defineConfig } = require('tinacms');
+import { defineConfig } from 'tinacms'
 
-module.exports = defineConfig({
+export default defineConfig({
   branch: process.env.TINA_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || 'main',
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   token: process.env.TINA_TOKEN,
@@ -84,4 +84,4 @@ module.exports = defineConfig({
       },
     ],
   },
-});
+})
