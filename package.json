@@ -2,15 +2,48 @@
   "name": "serpmax",
   "version": "1.0.0",
   "description": "Serpmax - Fast & Reliable Search API Landing Page",
-  "main": "index.html",
-  "scripts": {
-    "start": "live-server --port=8080",
-    "dev": "live-server --port=8080"
+  "engines": {
+    "node": ">=20.9.0"
   },
-  "keywords": ["search", "api", "serp", "google", "landing-page"],
+  "scripts": {
+    "dev": "next dev",
+    "build": "contentlayer2 build && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "contentlayer2 build || true"
+  },
+  "keywords": [
+    "search",
+    "api",
+    "serp",
+    "google",
+    "landing-page"
+  ],
   "author": "Serpmax",
   "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^22.0.1",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^25.2.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.24",
+    "contentlayer2": "^0.5.8",
+    "date-fns": "^4.1.0",
+    "next": "^16.1.6",
+    "next-contentlayer2": "^0.5.8",
+    "postcss": "^8.5.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindcss": "^4.1.18",
+    "tinacms": "^3.4.1",
+    "typescript": "^5.9.3"
+  },
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "@tailwindcss/typography": "^0.5.19",
+    "@tinacms/cli": "^2.1.5",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-pretty-code": "^0.14.1",
+    "rehype-slug": "^6.0.0"
   }
 }
