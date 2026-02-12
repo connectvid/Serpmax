@@ -1,9 +1,9 @@
-import { defineConfig } from 'tinacms'
+const { defineConfig } = require('tinacms');
 
-export default defineConfig({
+module.exports = defineConfig({
   branch: process.env.TINA_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || 'main',
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || '',
-  token: process.env.TINA_TOKEN || '',
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  token: process.env.TINA_TOKEN,
 
   build: {
     outputFolder: 'admin',
@@ -84,4 +84,4 @@ export default defineConfig({
       },
     ],
   },
-})
+});
