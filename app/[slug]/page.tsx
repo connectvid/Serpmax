@@ -181,7 +181,7 @@ export default async function ArticlePage({
               },
               mainEntityOfPage: {
                 '@type': 'WebPage',
-                '@id': `https://serpmax.vercel.app${article.url}`,
+                '@id': `https://serpapis.com${article.url}`,
               },
             }),
           }}

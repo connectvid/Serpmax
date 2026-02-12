@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const articles = allArticles
     .filter(article => article.published)
     .map((article) => ({
-      url: `https://serpmax.com${article.url}`,
+      url: `https://serpapis.com${article.url}`,
       lastModified: new Date(article.date),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: 'https://serpmax.com',
+      url: 'https://serpapis.com',
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,
