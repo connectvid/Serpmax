@@ -109,9 +109,9 @@ ${content}`
       )
     }
 
-    // 8. Revalidate blog pages (instant visibility!)
-    revalidatePath('/blog')
-    revalidatePath(`/blog/${slug}`)
+    // 8. Revalidate pages (instant visibility!)
+    revalidatePath('/')
+    revalidatePath(`/${slug}`)
 
     // 9. Return success
     return NextResponse.json(
@@ -119,7 +119,7 @@ ${content}`
         success: true,
         message: result.message,
         slug,
-        url: `/blog/${slug}`,
+        url: `/${slug}`,
         sha: result.sha,
       },
       { status: 201 }

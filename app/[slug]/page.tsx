@@ -72,7 +72,6 @@ export default async function ArticlePage({
           <div className="hidden md:flex items-center gap-8">
             <Link href="/#features" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">Features</Link>
             <Link href="/#pricing" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">Pricing</Link>
-            <Link href="/blog" className="text-indigo-600 font-medium">Blog</Link>
             <Link href="/#docs" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">Documentation</Link>
             <Link href="#" className="px-5 py-2.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/30 transition-all">Get Started</Link>
           </div>
@@ -83,10 +82,10 @@ export default async function ArticlePage({
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm">
           <Link
-            href="/blog"
+            href="/"
             className="text-indigo-600 hover:text-indigo-800 hover:underline"
           >
-            ← Back to Blog
+            ← Back to Home
           </Link>
         </nav>
 
@@ -182,7 +181,7 @@ export default async function ArticlePage({
               },
               mainEntityOfPage: {
                 '@type': 'WebPage',
-                '@id': `https://serpmax.com${article.url}`,
+                '@id': `https://serpmax.vercel.app${article.url}`,
               },
             }),
           }}

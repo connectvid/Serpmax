@@ -5,12 +5,12 @@ export default function NotFound() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="text-center">
         <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-8">Article not found</p>
+        <p className="text-xl text-gray-600 mb-8">Page not found</p>
         <Link
-          href="/blog"
+          href="/"
           className="inline-block px-6 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all"
         >
-          Back to Blog
+          Back to Home
         </Link>
       </div>
     </div>
