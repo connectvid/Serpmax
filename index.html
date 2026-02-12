@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serpmax - Fast & Reliable Search API</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">S</span>
+                <span>Serpmax</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#docs">Documentation</a></li>
+                <li><a href="#" class="btn btn-outline">Log In</a></li>
+                <li><a href="#" class="btn btn-primary">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">Trusted by 10,000+ developers</div>
+                <h1>The Fastest Search API for Developers</h1>
+                <p class="hero-subtitle">
+                    Access real-time Google search results with our blazing-fast API.
+                    No proxies, no headless browsers — just clean, structured data in milliseconds.
+                </p>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
+                    <a href="#docs" class="btn btn-outline btn-lg">View Documentation</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">99.9%</span>
+                        <span class="stat-label">Uptime</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">&lt;200ms</span>
+                        <span class="stat-label">Avg Response</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">1B+</span>
+                        <span class="stat-label">API Calls</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-code">
+                <div class="code-window">
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="code-title">request.js</span>
+                    </div>
+                    <pre><code><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">'https://api.serpmax.com/search'</span>, {
+  <span class="property">method</span>: <span class="string">'POST'</span>,
+  <span class="property">headers</span>: {
+    <span class="string">'X-API-Key'</span>: <span class="string">'your_api_key'</span>,
+    <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>
+  },
+  <span class="property">body</span>: <span class="function">JSON.stringify</span>({
+    <span class="property">q</span>: <span class="string">'best coffee in NYC'</span>,
+    <span class="property">num</span>: <span class="number">10</span>
+  })
+});
+
+<span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="function">json</span>();
+<span class="comment">// Returns structured search results instantly</span></code></pre>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything you need to build powerful search</h2>
+                <p>Our API provides comprehensive search capabilities with enterprise-grade reliability</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Average response time under 200ms. No rate limiting headaches. Scale instantly to millions of requests.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-grade security with 99.9% uptime SLA. Your data is encrypted and never stored.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Global Coverage</h3>
+                    <p>Search from 195+ countries and 100+ languages. Get localized results from anywhere.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Developer Friendly</h3>
+                    <p>Clean JSON responses, comprehensive docs, and SDKs for Python, Node.js, Go, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3>Multiple Search Types</h3>
+                    <p>Web, Images, News, Maps, Shopping, and Scholar search — all from a single unified API.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 20h9"></path>
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                        </svg>
+                    </div>
+                    <h3>Structured Data</h3>
+                    <p>Get clean, parsed results including knowledge graphs, featured snippets, and rich results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, transparent pricing</h2>
+                <p>Start free and scale as you grow. No hidden fees.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="pricing-desc">Perfect for testing and small projects</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> 100 searches/month</li>
+                        <li><span class="check">&#10003;</span> Web & Image search</li>
+                        <li><span class="check">&#10003;</span> Basic support</li>
+                        <li><span class="check">&#10003;</span> Standard response time</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-block">Get Started Free</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">49</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="pricing-desc">For growing businesses and teams</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> 10,000 searches/month</li>
+                        <li><span class="check">&#10003;</span> All search types</li>
+                        <li><span class="check">&#10003;</span> Priority support</li>
+                        <li><span class="check">&#10003;</span> Fast response time</li>
+                        <li><span class="check">&#10003;</span> Webhook notifications</li>
+                        <li><span class="check">&#10003;</span> Custom parameters</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-block">Start Free Trial</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">299</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="pricing-desc">For large-scale applications</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> Unlimited searches</li>
+                        <li><span class="check">&#10003;</span> All search types</li>
+                        <li><span class="check">&#10003;</span> Dedicated support</li>
+                        <li><span class="check">&#10003;</span> Fastest response time</li>
+                        <li><span class="check">&#10003;</span> Custom SLA</li>
+                        <li><span class="check">&#10003;</span> Dedicated infrastructure</li>
+                        <li><span class="check">&#10003;</span> On-premise option</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-block">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="docs" class="docs">
+        <div class="container">
+            <div class="docs-content">
+                <div class="docs-text">
+                    <h2>Ready to integrate in minutes</h2>
+                    <p>Our comprehensive documentation and SDKs make integration a breeze. Get up and running in under 5 minutes.</p>
+                    <div class="docs-features">
+                        <div class="doc-feature">
+                            <span class="doc-icon">&#128218;</span>
+                            <div>
+                                <strong>Comprehensive Docs</strong>
+                                <p>Detailed guides, tutorials, and API references</p>
+                            </div>
+                        </div>
+                        <div class="doc-feature">
+                            <span class="doc-icon">&#128187;</span>
+                            <div>
+                                <strong>Official SDKs</strong>
+                                <p>Python, Node.js, Go, Ruby, PHP, and more</p>
+                            </div>
+                        </div>
+                        <div class="doc-feature">
+                            <span class="doc-icon">&#128172;</span>
+                            <div>
+                                <strong>Developer Community</strong>
+                                <p>Active Discord with 5,000+ developers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary">Read Documentation</a>
+                </div>
+                <div class="docs-code">
+                    <div class="code-tabs">
+                        <button class="tab active">Python</button>
+                        <button class="tab">Node.js</button>
+                        <button class="tab">cURL</button>
+                    </div>
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <pre><code><span class="keyword">import</span> serpmax
+
+client = serpmax.<span class="function">Client</span>(<span class="string">"your_api_key"</span>)
+
+result = client.<span class="function">search</span>(
+    <span class="property">query</span>=<span class="string">"best restaurants in SF"</span>,
+    <span class="property">location</span>=<span class="string">"San Francisco, CA"</span>,
+    <span class="property">num</span>=<span class="number">10</span>
+)
+
+<span class="keyword">for</span> item <span class="keyword">in</span> result.organic:
+    <span class="function">print</span>(item.title, item.link)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start building with Serpmax today</h2>
+                <p>Join thousands of developers using Serpmax to power their search applications.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-white btn-lg">Get Started Free</a>
+                    <a href="#" class="btn btn-outline-white btn-lg">Talk to Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">S</span>
+                        <span>Serpmax</span>
+                    </a>
+                    <p>The fastest and most reliable search API for developers.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Serpmax. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

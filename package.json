@@ -1,0 +1,16 @@
+{
+  "name": "serpmax",
+  "version": "1.0.0",
+  "description": "Serpmax - Fast & Reliable Search API Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=8080",
+    "dev": "live-server --port=8080"
+  },
+  "keywords": ["search", "api", "serp", "google", "landing-page"],
+  "author": "Serpmax",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
