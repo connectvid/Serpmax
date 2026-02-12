@@ -3,9 +3,6 @@ import { format } from 'date-fns'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
-import ArticleContent from '@/components/ArticleContent'
 
 export const revalidate = 60
 
@@ -24,29 +21,18 @@ export async function generateMetadata({
   const article = allArticles.find((a) => a.slug === slug)
 
   if (!article) {
-    return {
-      title: 'Article Not Found | SerpApis',
-    }
+    return { title: 'Article Not Found | SerpApis' }
   }
 
   return {
     title: `${article.title} | SerpApis`,
     description: article.description,
     keywords: article.keywords?.join(', '),
-    authors: [{ name: article.author }],
     openGraph: {
       title: article.title,
       description: article.description,
       type: 'article',
       publishedTime: article.date,
-      authors: [article.author || 'SerpApis Team'],
-      images: article.image ? [{ url: article.image }] : [],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: article.title,
-      description: article.description,
-      images: article.image ? [article.image] : [],
     },
   }
 }
@@ -63,181 +49,142 @@ export default async function ArticlePage({
     notFound()
   }
 
-  // Get related articles (same keywords, different slug)
   const relatedArticles = allArticles
-    .filter((a) =>
-      a.slug !== slug &&
-      a.published &&
-      a.keywords?.some(k => article.keywords?.includes(k))
-    )
+    .filter((a) => a.slug !== slug && a.published)
     .slice(0, 3)
 
   return (
-    <div className="min-h-screen bg-white dark:bg-dark-900 transition-colors duration-300">
-      <Navigation />
-
-      <article className="pt-24">
-        {/* Hero Section */}
-        <header className="bg-gradient-to-b from-primary-50 to-white dark:from-dark-800 dark:to-dark-900 py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="mb-8">
-              <ol className="flex items-center gap-2 text-sm">
-                <li>
-                  <Link
-                    href="/"
-                    className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400 transition-colors"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li className="text-gray-400 dark:text-gray-600">/</li>
-                <li>
-                  <Link
-                    href="/articles"
-                    className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400 transition-colors"
-                  >
-                    Articles
-                  </Link>
-                </li>
-                <li className="text-gray-400 dark:text-gray-600">/</li>
-                <li className="text-gray-900 dark:text-white font-medium truncate max-w-[200px]">
-                  {article.title}
-                </li>
-              </ol>
-            </nav>
-
-            {/* Article Meta */}
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              {article.keywords && article.keywords.length > 0 && (
-                <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400 text-xs font-semibold rounded-full uppercase tracking-wide">
-                  {article.keywords[0]}
-                </span>
-              )}
-              <span className="text-gray-500 dark:text-gray-400 text-sm">
-                {article.readingTime} min read
-              </span>
+    <div className="min-h-screen bg-white">
+      {/* Navbar */}
+      <nav className="border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="text-xl font-bold text-gray-900">
+              SerpApis
+            </Link>
+            <div className="flex items-center gap-6">
+              <Link href="/" className="text-gray-600 hover:text-gray-900">
+                Home
+              </Link>
+              <Link
+                href="/compare"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              >
+                Compare APIs
+              </Link>
             </div>
+          </div>
+        </div>
+      </nav>
 
-            {/* Title */}
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-              {article.title}
-            </h1>
+      <article className="max-w-3xl mx-auto px-4 py-12">
+        {/* Breadcrumb */}
+        <nav className="mb-8 text-sm text-gray-500">
+          <Link href="/" className="hover:text-blue-600">Home</Link>
+          <span className="mx-2">/</span>
+          <span className="text-gray-900">{article.title}</span>
+        </nav>
 
-            {/* Description */}
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              {article.description}
-            </p>
+        {/* Header */}
+        <header className="mb-8">
+          {article.keywords && article.keywords[0] && (
+            <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full mb-4">
+              {article.keywords[0]}
+            </span>
+          )}
 
-            {/* Author & Date */}
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center">
-                <span className="text-primary-700 dark:text-primary-400 font-semibold text-lg">
-                  {article.author?.charAt(0) || 'S'}
-                </span>
-              </div>
-              <div>
-                <p className="font-semibold text-gray-900 dark:text-white">
-                  {article.author || 'SerpApis Team'}
-                </p>
-                <time
-                  dateTime={article.date}
-                  className="text-sm text-gray-500 dark:text-gray-400"
-                >
-                  {format(new Date(article.date), 'MMMM dd, yyyy')}
-                </time>
-              </div>
-            </div>
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            {article.title}
+          </h1>
+
+          <p className="text-lg text-gray-600 mb-6">
+            {article.description}
+          </p>
+
+          <div className="flex items-center gap-4 text-sm text-gray-500">
+            <span>{article.author || 'SerpApis Team'}</span>
+            <span>·</span>
+            <time dateTime={article.date}>
+              {format(new Date(article.date), 'MMM dd, yyyy')}
+            </time>
+            <span>·</span>
+            <span>{article.readingTime} min read</span>
           </div>
         </header>
 
         {/* Featured Image */}
         {article.image && (
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-            <img
-              src={article.image}
-              alt={article.title}
-              className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
-            />
+          <img
+            src={article.image}
+            alt={article.title}
+            className="w-full h-64 sm:h-80 object-cover rounded-lg mb-8"
+          />
+        )}
+
+        {/* Content */}
+        <div
+          className="prose prose-lg max-w-none
+            prose-headings:text-gray-900
+            prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
+            prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
+            prose-p:text-gray-700 prose-p:leading-relaxed
+            prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+            prose-strong:text-gray-900
+            prose-ul:my-4 prose-ol:my-4
+            prose-li:text-gray-700
+            prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+            prose-pre:bg-gray-900 prose-pre:text-gray-100
+            prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic"
+          dangerouslySetInnerHTML={{ __html: article.body.html }}
+        />
+
+        {/* Tags */}
+        {article.keywords && article.keywords.length > 0 && (
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <h3 className="text-sm font-medium text-gray-500 mb-3">Topics</h3>
+            <div className="flex flex-wrap gap-2">
+              {article.keywords.map((keyword) => (
+                <span
+                  key={keyword}
+                  className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                >
+                  {keyword}
+                </span>
+              ))}
+            </div>
           </div>
         )}
-
-        {/* Article Content with TOC */}
-        <ArticleContent
-          content={article.body.html}
-          keywords={article.keywords || []}
-        />
-
-        {/* Related Articles */}
-        {relatedArticles.length > 0 && (
-          <section className="py-16 bg-gray-50 dark:bg-dark-800">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-                Related Articles
-              </h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                {relatedArticles.map((related) => (
-                  <Link
-                    key={related.slug}
-                    href={`/${related.slug}`}
-                    className="group bg-white dark:bg-dark-900 rounded-xl p-6 border border-gray-200 dark:border-dark-700 hover:border-primary dark:hover:border-primary-500 hover:shadow-lg transition-all duration-300"
-                  >
-                    <span className="text-xs font-semibold text-primary dark:text-primary-400 uppercase tracking-wide">
-                      {related.keywords?.[0] || 'Article'}
-                    </span>
-                    <h3 className="mt-2 text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary-400 transition-colors line-clamp-2">
-                      {related.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
-                      {related.description}
-                    </p>
-                    <div className="mt-4 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-                      <span>{related.readingTime} min read</span>
-                      <span className="text-primary dark:text-primary-400 font-medium group-hover:translate-x-1 transition-transform">
-                        Read more →
-                      </span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Article',
-              headline: article.title,
-              description: article.description,
-              image: article.image,
-              datePublished: article.date,
-              dateModified: article.date,
-              author: {
-                '@type': 'Person',
-                name: article.author,
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: 'SerpApis',
-                logo: {
-                  '@type': 'ImageObject',
-                  url: 'https://serpapis.com/logo.png',
-                },
-              },
-              mainEntityOfPage: {
-                '@type': 'WebPage',
-                '@id': `https://serpapis.com${article.url}`,
-              },
-            }),
-          }}
-        />
       </article>
 
-      <Footer />
+      {/* Related Articles */}
+      {relatedArticles.length > 0 && (
+        <section className="bg-gray-50 py-12 px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-xl font-bold text-gray-900 mb-6">More Articles</h2>
+            <div className="grid gap-4">
+              {relatedArticles.map((related) => (
+                <Link
+                  key={related.slug}
+                  href={`/${related.slug}`}
+                  className="block p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-500 transition-colors"
+                >
+                  <h3 className="font-medium text-gray-900">{related.title}</h3>
+                  <p className="text-sm text-gray-600 mt-1 line-clamp-1">
+                    {related.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Footer */}
+      <footer className="py-8 px-4 border-t border-gray-200">
+        <div className="max-w-3xl mx-auto text-center text-sm text-gray-500">
+          © 2024 SerpApis. All rights reserved.
+        </div>
+      </footer>
     </div>
   )
 }
