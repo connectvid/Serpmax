@@ -1,9 +1,11 @@
 import { defineConfig } from 'tinacms'
 
+// Self-hosted TinaCMS configuration
+// Works locally without TinaCloud
 export default defineConfig({
-  branch: process.env.TINA_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || 'main',
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  token: process.env.TINA_TOKEN,
+  branch: '',
+  clientId: null,
+  token: null,
 
   build: {
     outputFolder: 'admin',
